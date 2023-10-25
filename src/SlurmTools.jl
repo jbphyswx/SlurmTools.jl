@@ -142,12 +142,12 @@ function sbatch_julia_expr(expr)
     slurm_args = Dict{String,Any}(                                                                             
     "job-name"=>"sbatch_test",
     "nodes"=>"1",
-    "mem"=>"10GB", # test cause some crashed in memory and charles doin in cmmit #1267
+    "mem"=>"2GB", # test cause some crashed in memory and charles doin in cmmit #1267
     "time"=>"05:59:00",
     "mail-user"=>"jbenjami@caltech.edu",
     "mail-type"=>"ALL",
     "ntasks"=>"1",
-    "gres"=>"gpu:1",
+    "gres"=>"gpu:0",
     "ntasks-per-node"=>"1",
     )
 
@@ -207,12 +207,12 @@ function sbatch_julia_expr_clima(expr)
     slurm_args = Dict{String,Any}(                                                                             
     "job-name"=>"sbatch_test",
     "nodes"=>"1",
-    "mem"=>"10GB", # test cause some crashed in memory and charles doin in cmmit #1267
+    "mem"=>"2GB", # test cause some crashed in memory and charles doin in cmmit #1267
     "time"=>"05:59:00",
     "mail-user"=>"jbenjami@caltech.edu",
     "mail-type"=>"ALL",
     "ntasks"=>"1",
-    "gres"=>"gpu:1",
+    "gres"=>"gpu:0",
     "ntasks-per-node"=>"1",
     )
 
@@ -224,8 +224,8 @@ function sbatch_julia_expr_clima(expr)
         "module load julia/1.8.5", # rely on bashrc doesnt work, we gotta update this everytime we update julia...
         # "module load hdf5/1.10.1",
         # "module load netcdf-c/4.6.1",
-        "module load cuda/julia_pref",
-        "module load openmpi/4.1.5_cudax",
+        "module load cuda/julia-pref",
+        "module load openmpi/4.1.5-cudax",
         # "module load cmake/3.10.2", # CUDA-aware MPI
         #
         # "module load HDF5/1.8.19-mpich-3.2", # seems to be only sampo default
