@@ -157,16 +157,6 @@ function sbatch_julia_expr(expr)
         # "set -x", # echo script line by line as it runs it
         "module purge",
         "module load julia/1.9.3", # rely on bashrc doesnt work, we gotta update this everytime we update julia...
-        "module load hdf5/1.10.1",
-        "module load netcdf-c/4.6.1",
-        "module load cuda/11.2",
-        "module load openmpi/4.0.4_cuda-10.2",
-        "module load cmake/3.10.2", # CUDA-aware MPI
-        #
-        # "module load HDF5/1.8.19-mpich-3.2", # seems to be only sampo default
-        # "module load netCDF/3.6.3-pgi-2017", # seems to be only sampo default
-        # "module load openmpi/1.10.2/2017",  
-        # "module load mpi/openmpi-x86_64",
         #
         raw"export JULIA_NUM_THREADS=${SLURM_CPUS_PER_TASK:=1}", # usin raw so we dont have to escape all the dollar signs and brackets
         # "export JULIA_DEPOT_PATH=$(CLIMA)/.julia_depot", # not sure why i commented this out, seems to lead to mpi binary has changed, please run pkg.build mpi...
